@@ -1,0 +1,249 @@
+{
+  "dataset": {
+    "rows": 1800,
+    "columns": [
+      "income",
+      "debt_ratio",
+      "credit_history_years",
+      "loan_amount",
+      "num_late_payments",
+      "employment_years",
+      "age",
+      "age_group",
+      "home_ownership",
+      "default"
+    ],
+    "missing": {
+      "income": 0,
+      "debt_ratio": 0,
+      "credit_history_years": 0,
+      "loan_amount": 0,
+      "num_late_payments": 0,
+      "employment_years": 0,
+      "age": 0,
+      "age_group": 0,
+      "home_ownership": 0,
+      "default": 0
+    },
+    "target_rate": 0.13722222222222222,
+    "numeric_describe": {
+      "income": {
+        "count": 1800.0,
+        "mean": 56165.1505,
+        "std": 32831.0038,
+        "min": 18000.0,
+        "25%": 33395.9238,
+        "50%": 48994.4446,
+        "75%": 69280.6921,
+        "max": 243490.8288
+      },
+      "debt_ratio": {
+        "count": 1800.0,
+        "mean": 0.3566,
+        "std": 0.1748,
+        "min": 0.01,
+        "25%": 0.223,
+        "50%": 0.3382,
+        "75%": 0.4752,
+        "max": 0.8738
+      },
+      "credit_history_years": {
+        "count": 1800.0,
+        "mean": 24.3417,
+        "std": 15.0498,
+        "min": 0.0,
+        "25%": 11.0,
+        "50%": 25.0,
+        "75%": 38.0,
+        "max": 45.0
+      },
+      "loan_amount": {
+        "count": 1800.0,
+        "mean": 19866.0587,
+        "std": 15622.8328,
+        "min": 1000.0,
+        "25%": 8815.8524,
+        "50%": 15765.8293,
+        "75%": 26527.6037,
+        "max": 100000.0
+      },
+      "num_late_payments": {
+        "count": 1800.0,
+        "mean": 1.9861,
+        "std": 1.5005,
+        "min": 0.0,
+        "25%": 1.0,
+        "50%": 2.0,
+        "75%": 3.0,
+        "max": 11.0
+      },
+      "employment_years": {
+        "count": 1800.0,
+        "mean": 7.6445,
+        "std": 4.7183,
+        "min": 0.1397,
+        "25%": 4.1085,
+        "50%": 6.83,
+        "75%": 9.9851,
+        "max": 38.2475
+      },
+      "age": {
+        "count": 1800.0,
+        "mean": 48.1472,
+        "std": 15.9003,
+        "min": 21.0,
+        "25%": 34.0,
+        "50%": 48.0,
+        "75%": 62.0,
+        "max": 75.0
+      },
+      "default": {
+        "count": 1800.0,
+        "mean": 0.1372,
+        "std": 0.3442,
+        "min": 0.0,
+        "25%": 0.0,
+        "50%": 0.0,
+        "75%": 0.0,
+        "max": 1.0
+      }
+    }
+  },
+  "splits": {
+    "train": 1080,
+    "validation": 360,
+    "test": 360
+  },
+  "models": {
+    "logistic": {
+      "validation": {
+        "roc_auc": 0.638774193548387,
+        "pr_auc": 0.2608392032324958,
+        "brier": 0.22810895109766413,
+        "accuracy": 0.6583333333333333,
+        "precision": 0.22137404580152673,
+        "recall": 0.58,
+        "f1": 0.32044198895027626,
+        "threshold": 0.5099999999999999
+      },
+      "test": {
+        "roc_auc": 0.6957805630290702,
+        "pr_auc": 0.30511757931419403,
+        "brier": 0.20734762574060098,
+        "accuracy": 0.6888888888888889,
+        "precision": 0.2396694214876033,
+        "recall": 0.5918367346938775,
+        "f1": 0.3411764705882353,
+        "threshold": 0.5099999999999999
+      },
+      "cost": {
+        "fp_cost": 1.0,
+        "fn_cost": 5.0,
+        "expected_cost": 207.0
+      },
+      "fairness": {
+        "middle": {
+          "n": 158,
+          "default_rate": 0.10759493670886076,
+          "selection_rate": 0.26582278481012656,
+          "tpr": 0.4117647058823529
+        },
+        "older": {
+          "n": 136,
+          "default_rate": 0.18382352941176472,
+          "selection_rate": 0.39705882352941174,
+          "tpr": 0.72
+        },
+        "young": {
+          "n": 66,
+          "default_rate": 0.10606060606060606,
+          "selection_rate": 0.3787878787878788,
+          "tpr": 0.5714285714285714
+        }
+      },
+      "feature_importance": {
+        "debt_ratio": 0.19686331124089512,
+        "credit_history_years": 0.05374368396876439,
+        "num_late_payments": 0.025592230461316423,
+        "age_group": 0.021983069755233342,
+        "age": 0.011089966533237128,
+        "income": 0.006758973685937475,
+        "employment_years": 0.00045934772622879816,
+        "loan_amount": -0.0022311175273967976,
+        "home_ownership": -0.00774329024214182
+      }
+    },
+    "lightgbm_fallback": {
+      "validation": {
+        "roc_auc": 0.6247741935483871,
+        "pr_auc": 0.21128983617883898,
+        "brier": 0.12335696406115366,
+        "accuracy": 0.5583333333333333,
+        "precision": 0.19889502762430938,
+        "recall": 0.72,
+        "f1": 0.3116883116883117,
+        "threshold": 0.10999999999999999
+      },
+      "test": {
+        "roc_auc": 0.666940087932279,
+        "pr_auc": 0.30341124461522184,
+        "brier": 0.10988729994954281,
+        "accuracy": 0.5805555555555556,
+        "precision": 0.17721518987341772,
+        "recall": 0.5714285714285714,
+        "f1": 0.27053140096618356,
+        "threshold": 0.10999999999999999
+      },
+      "cost": {
+        "fp_cost": 1.0,
+        "fn_cost": 5.0,
+        "expected_cost": 215.0
+      },
+      "fairness": {
+        "middle": {
+          "n": 158,
+          "default_rate": 0.10759493670886076,
+          "selection_rate": 0.41139240506329117,
+          "tpr": 0.47058823529411764
+        },
+        "older": {
+          "n": 136,
+          "default_rate": 0.18382352941176472,
+          "selection_rate": 0.4485294117647059,
+          "tpr": 0.72
+        },
+        "young": {
+          "n": 66,
+          "default_rate": 0.10606060606060606,
+          "selection_rate": 0.48484848484848486,
+          "tpr": 0.2857142857142857
+        }
+      },
+      "feature_importance": {
+        "debt_ratio": 0.23784369053087473,
+        "num_late_payments": 0.01361637902749524,
+        "credit_history_years": 0.013189841853139983,
+        "loan_amount": 0.009646302250803873,
+        "income": 0.006102762648467763,
+        "age_group": 0.0020998753199028553,
+        "home_ownership": -0.004495045606667136,
+        "age": -0.006069952096594222,
+        "employment_years": -0.01289454688627878
+      }
+    }
+  },
+  "calibrated_logistic": {
+    "test": {
+      "roc_auc": 0.6956493208215762,
+      "pr_auc": 0.3051748514652316,
+      "brier": 0.10891206280501024,
+      "accuracy": 0.8666666666666667,
+      "precision": 0.6666666666666666,
+      "recall": 0.04081632653061224,
+      "f1": 0.07692307692307693,
+      "threshold": 0.5
+    },
+    "brier": 0.10891206280501024
+  },
+  "selected_model": "logistic"
+}
