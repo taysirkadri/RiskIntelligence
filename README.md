@@ -6,13 +6,13 @@ A small, runnable credit-risk workflow with a deterministic synthetic fallback (
 
 ```powershell
 python -m pip install -e ".[api,ui,test]"
-credit-risk-train
+risk-train
 uvicorn credit_risk.api:app --reload       # POST /score, GET /health
 streamlit run src/credit_risk/streamlit_app.py
 pytest
 ```
 
-The training command writes `outputs/credit_risk_model.joblib` and `outputs/metrics.json`.
+The training command writes `outputs/metrics.json` and the model artifact under `outputs/`.
 It performs leakage-safe train/validation/test splits, preprocessing, logistic baseline,
 LightGBM when installed (otherwise a sklearn gradient-boosting fallback), sigmoid
 calibration, ROC/PR/Brier metrics, cost-sensitive threshold selection, group slices,

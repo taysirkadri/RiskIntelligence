@@ -20,4 +20,4 @@ if submitted:
         result = score_application(locals())
         st.metric("Default probability", f"{result['default_probability']:.1%}")
         st.warning(result["decision"])
-    except FileNotFoundError: st.error("Train the model first: credit-risk-train")
+    except FileNotFoundError: st.error("Train the model first: risk-train")

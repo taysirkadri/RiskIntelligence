@@ -1,4 +1,4 @@
-# Model card: Credit Risk Intelligence demo
+# RiskIntelligence Model Card
 
 ## Intended use
 Educational prototyping and model-risk workflow demonstration. The synthetic fallback
